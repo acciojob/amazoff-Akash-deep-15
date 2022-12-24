@@ -71,15 +71,20 @@ public class OrderRepository {
         for(String i: orderMap.keySet()) {
             ans.add(i);
         }
+        if(!orderMap.isEmpty())
         return ans;
+        else
+            return null;
     }
 
     public Integer getCountOfUnassignedOrders() {   // 9. count of unassigned integers...
 
         int count = 0;
-        for(String i: assignMap.keySet()) {
-            if(assignMap.get(i) == false)
-                count++;
+        if(!orderMap.isEmpty()) {
+            for (String i : assignMap.keySet()) {
+                if (assignMap.get(i) == false)
+                    count++;
+            }
         }
         return count;
     }
